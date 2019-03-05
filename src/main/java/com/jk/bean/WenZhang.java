@@ -13,7 +13,7 @@ public class WenZhang {
     String title;
     String name ;
     String img;
-    String mp3;
+    String music;
     String content;
     Integer browse;
     @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")

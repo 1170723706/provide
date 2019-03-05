@@ -32,7 +32,8 @@
                             $("#title").html(a.title);
                             $("#name").html(a.name);
                             $("#img1").prop("src",a.img);
-                            $("#mp3").attr("href",a.mp3);
+                            $("#music").attr("href",a.music);
+                            console.log($("#music").attr("src",a.music))
                             $("#content").html(a.content);
                             console.log(a);
                        },
@@ -54,9 +55,9 @@
         <img width="300px" height="200px" src="" id="img1">
     </div>
     <div  style="margin-top: 5px;margin-left: 4px">
-        <audio controls="controls" id="mp3" href=""></audio>
+        <audio controls="controls" id="music" src=""></audio>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="margin-left: 20px">
         <div class="panel-heading">
             <h3 class="panel-title">
                介绍:

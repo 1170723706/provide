@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.BckMapper">
+    <select id="queryExample" resultType="Example">
+        SELECT e.*,d.dt_name,d.dt_img,d.dt_addr FROM `t_ example` e,t_docutor_expert d where e.em_zeid = d.id
+    </select>
+</mapper>

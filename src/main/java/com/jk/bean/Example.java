@@ -18,9 +18,14 @@ public class Example {
     private Integer em_browse;
     private Integer em_medal;
     private String em_img;
-    private String em_mp3;
-    private String em_content;
-    private String dt_name;
-    private String dt_img;
-    private String dt_addr;
+     String em_mp3;
+     String em_content;
+    String dt_name;
+    String dt_zc;
+    String dt_addr;
+    String dt_img;
+    String dt_jj;
+    String dt_modle;
+    Integer dt_level;
+    Integer dt_qw;
 }

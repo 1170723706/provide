@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface BckMapper {
     List<Example> queryExample();
+
+    Example queryExampleById(Integer id);
+
+    void updateById(Integer id);
 }

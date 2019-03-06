@@ -4,17 +4,55 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
     <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/layer/layer.js"></script>
+    <link rel="stylesheet" href="/js/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script type="text/javascript">
-        /*var i=0;
-        var totalHeight = $(document).height();//整个文档高度
-        var seeHeight = $(window).height();//浏览器可视窗口高度
-        var thisBodyHeight = $(document.body).height();//浏览器当前窗口文档body的高度
-        var totalBodyHeight = $(document.body).outerHeight(true);//浏览器当前窗口文档body的总高度 包括border padding margin
-        var thisWidth = $(window).width(); //浏览器当前窗口可视区域宽度
-        var thisDocumentWidth = $(document).width();//浏览器当前窗口文档对象宽度
-        var thisBodyWidth = $(document.body).width();//浏览器当前窗口文档body的宽度
-        var totalBodyWidth = $(document.body).outerWidth(true);//浏览器当前窗口文档body的总宽度 包括border padding margin
-        var scrollTop = $(window).scrollTop();//浏览器可视窗口顶端距离网页顶端的高度（垂直偏移）
+        var i = 1;
+        var a = 3;
+        cont = "";
+        var seeHeight = null;
+        var scrollTop = null
+        var totalHeight = null;
+        $(function(){
+
+                $.ajax({
+                    url:'/bck/queryExample1?page='+i+'&rows='+a+'',
+                    async:false,
+                    success:function(result){
+
+                        $.each(result,function (index,obj) {
+                            cont += "<br>";
+                            cont += "<div class='load_div' style='background-color:#F3F3F3'>";
+                            cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='javascript:void(0)' onclick='xiangqing("+obj.id+")'>"+obj.em_title+"</a></font><br><br>";
+                            cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>"+obj.dt_name+"&nbsp;·&nbsp;"+obj.dt_addr+"</font><br><br>";
+                            cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>"+obj.em_createtime+"&nbsp;&nbsp;&nbsp;          "+obj.em_browse+"人观看&nbsp;&nbsp;&nbsp;          获得"+obj.em_medal+"枚奖章</font><br><br>";
+                            cont += "<center><img src='"+obj.em_img+"'width='500px' height='300px'></center>"
+                        })
+                        cont += "<div id='tt'></div>";
+                        $("#content").html(cont);
+                        seeHeight = $(window).height();//浏览器可视窗口高度
+                        /*var thisBodyHeight = $(document.body).height();//浏览器当前窗口文档body的高度
+                        var totalBodyHeight = $(document.body).outerHeight(true);//浏览器当前窗口文档body的总高度 包括border padding margin
+                        var thisWidth = $(window).width(); //浏览器当前窗口可视区域宽度
+                        var thisDocumentWidth = $(document).width();//浏览器当前窗口文档对象宽度
+                        var thisBodyWidth = $(document.body).width();//浏览器当前窗口文档body的宽度
+                        var totalBodyWidth = $(document.body).outerWidth(true);//浏览器当前窗口文档body的总宽度 包括border padding margin*/
+                        scrollTop= $(window).scrollTop();//浏览器可视窗口顶端距离网页顶端的高度（垂直偏移）
+                        totalHeight = $(document).height();//整个文档高度
+
+                    },
+                    error:function(){
+                        alert("失败");
+                    }
+
+            })
+
+
+        })
+
+
+
         // console.log(totalHeight,seeHeight,thisBodyHeight,totalBodyHeight,thisWidth,thisDocumentWidth,thisBodyWidth,totalBodyWidth,scrollTop);
         //添加滚动事件
         $(window).scroll(function(){
@@ -22,41 +60,51 @@
             totalHeight = $(document).height();
             // console.log(scrollTop,seeHeight,totalHeight)
             if(scrollTop+seeHeight+50>totalHeight){
-                var htmlText = '<div class="load_div"></div>';
-                i++;
-                if(i<=4){
-                    $('body').append(htmlText);
-                }
+                i = i+1;
+                $.ajax({
+                    url: '/bck/queryExample1?page=' + i + '&rows=' + a + '',
+                    success: function (result) {
+                        var conntt="";
+                        if(result ==null){
+                            $('#tt').append(conntt);
+                        }else {
+                            $.each(result, function (index, obj) {
+                                conntt += "<br>";
+                                conntt += "<div class='load_div2' style='background-color:#F3F3F3'>";
+                                conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='javascript:void(0)' onclick='xiangqing("+obj.id+")'>" + obj.em_title + "</a></font><br><br>";
+                                conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>" + obj.dt_name + "&nbsp;·&nbsp;" + obj.dt_addr + "</font><br><br>";
+                                conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>" + obj.em_createtime + "&nbsp;&nbsp;&nbsp;          " + obj.em_browse + "人观看&nbsp;&nbsp;&nbsp;          获得" + obj.em_medal + "枚奖章</font><br><br>";
+                                conntt += "<center><img  src='" + obj.em_img + "'width='500px' height='300px'></center>"
+                        })
+                            $('#tt').append(conntt);
+                        }
+
+
+                    },
+                    error: function () {
+                        alert("失败");
+                    }
+                })
             }
 
 
         })
-*/
-        $(function(){
 
+        function back(){
+                window.location.href="/home/ToPage?name=index-home";
+        }
+        function xiangqing(id){
             $.ajax({
-                url:'/bck/queryExample1',
-                success:function(result){
-                    cont = "";
-
-                    cont+="<div style='height: 50px;width: 600px;background-color: #F3F3F3'><center><font size='6'>病例荟萃</font></center></div><br><br>";
-                    $.each(result,function (index,obj) {
-                        cont += "<br>";
-                        cont += "<div class='load_div' style='background-color:#F3F3F3'>";
-                        cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'>"+obj.em_title+"</font><br><br>";
-                        cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>"+obj.dt_name+"&nbsp;·&nbsp;"+obj.dt_addr+"</font><br><br>";
-                        cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>"+obj.em_createtime+"&nbsp;&nbsp;&nbsp;          "+obj.em_browse+"人观看&nbsp;&nbsp;&nbsp;          获得"+obj.em_medal+"枚奖章</font><br><br>";
-                        cont += "<center><img src='"+obj.em_img+"'width='500px' height='300px'></center>"
-                    })
-                    $("#content").html(cont);
-
+                url:'/bck/updateById',
+                data:{id:id},
+                success:function() {
+                    window.location.href = "/home/ToPage?name=xiangqing&id=" + id;
                 },
-                error:function(){
+                error: function () {
                     alert("失败");
                 }
             })
-
-        })
+        }
     </script>
 
 </head>
@@ -81,44 +129,53 @@
                                 border:1px solid #FFFFFF;
                             }
              .load_div2{
-                              width: 600px;
-                               height: 450px;
-                               border:1px solid #FFFFFF;
-                            }
+                 width: 600px;
+                 height: 450px;
+                 border:1px solid #FFFFFF;
+             }
         </style>
  </head>
  <body>
+ <div style='height: 80px;width: 600px'>
+ <nav class="navbar navbar-default " role="navigation">
+
+     <div class="container-fluid">
+         <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse"
+                     data-target="#example-navbar-collapse">
+                 <span class="sr-only">切换导航</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>
+             <a class="navbar-brand" href="javascript:void(0)" onclick="back()">返回</a>
+             <a class="navbar-brand" href="#"><font size='6'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;病例荟萃</font></a>
+         </div>
+
+         <div class="collapse navbar-collapse" id="example-navbar-collapse">
+             <ul class="nav navbar-nav">
+                 <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         Java <b class="caret"></b>
+                     </a>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">jmeter</a></li>
+                         <li><a href="#">EJB</a></li>
+                         <li><a href="#">Jasper Report</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#">分离的链接</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#">另一个分离的链接</a></li>
+                     </ul>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </nav>
+ </div>
+ <br>
  <div id="content">
-    <!--<br>
-    <div class="load_div" style="background-color:#F3F3F3">
-        <center><font size="5"><b>ddd</b></font><br>
-        <img src="http://img11.360buyimg.com/n7/jfs/t27163/354/1454412463/213745/cb143ad4/5bc8229fN71106836.jpg"width="500px" height="300px">
-        </center>
-    </div>
-    <br>
-    <div class="load_div">
-        <center><font size="5"><b>ddd</b></font></center><br>
-        <img src="//img12.360buyimg.com/n7/jfs/t1/28484/20/5648/338122/5c3fe0a3Ef20e3ac3/ef73300c8d121275.jpg"width="500px" height="300px">
-    </div>
-    <div class="load_div">
-        <center><font size="5"><b>ddd</b></font></center><br>
-        <img src="//img14.360buyimg.com/n7/jfs/t20014/242/1061874564/87859/1352a4bd/5b13bbc8Nc24c1855.jpg"width="400px" height="300px">
-    </div>
-    <br>
-    <div class="load_div">
-        <center><font size="5"><b>ddd</b></font></center><br>
-        <img src="//img11.360buyimg.com/n7/jfs/t29500/57/282462269/131301/19772039/5bed342dNb7a431ec.jpg"width="400px" height="300px">
-    </div>
-    <br>
-   <div class="load_div">
-       <center><font size="5"><b>ddd</b></font></center><br>
-       <img src="//img10.360buyimg.com/n7/jfs/t1/12128/27/227/122062/5c0741adE1b935675/a24456e370fde0f2.jpg"width="400px" height="300px">
-   </div>
-    <br>
-    <div class="load_div">
-        <center><font size="5"><b>ddd</b></font></center><br>
-        <img src="//img13.360buyimg.com/cms/s190x190_jfs/t29044/136/722599382/321284/97a463d2/5bfbca6fN479cf16b.jpg"width="400px" height="300px">
-    </div>-->
+
  </div>
  </body>
 </html>

@@ -18,7 +18,6 @@ function getjj() {
     var tmp = $("#tmp").val();
     var der = tmp==0?"赞美专家":"权威专家";
     $("#font1").html(der);
-    $("#href1").prop("href","http://localhost:2001/home/to?tmp="+tmp);
     /*ajax   start*/
     var id = $("#id1").val();
             $.ajax({
@@ -60,7 +59,7 @@ function getjj() {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="href1" class="navbar-brand" href="">&nbsp;&nbsp;&nbsp;返回</a>
+                <a class="navbar-brand" href="http://localhost:2001/home/to?tmp=1">&nbsp;&nbsp;&nbsp;返回</a>
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav">

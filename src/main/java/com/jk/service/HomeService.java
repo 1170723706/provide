@@ -11,8 +11,4 @@ public interface HomeService {
     List<Exprent> getzanmei();
 
     List<WenZhang> getTitle();
-
-    List<Exprent> getAllzhuanjia(String tmp);
-
-    Exprent getJJ(String id);
 }

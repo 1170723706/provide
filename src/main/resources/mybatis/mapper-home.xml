@@ -27,27 +27,4 @@
         select  *  from   t_wenzhang w order by  w.creaTime desc LIMIT 5
     </select>
 
-    <!--List<Exprent> getAllzhuanjia1();-->
-    <select id="getAllzhuanjia1" resultType="exprent">
-        select * from t_docutor_expert where dt_qw = 1
-    </select>
-
-    <!--List<Exprent> getAllzhuanjia0();-->
-    <select id="getAllzhuanjia0" resultType="exprent">
-         SELECT
-            t.*
-        FROM
-            t_docutor_expert t
-        LEFT JOIN
-          t_wenzhang w
-        ON
-          t.id = w.zeid
-        GROUP BY
-          w.browse DESC
-    </select>
-
-    <!--Exprent getJJ(String id);-->
-    <select id="getJJ" resultType="exprent">
-        select * from t_docutor_expert where id = ${id}
-    </select>
 </mapper>

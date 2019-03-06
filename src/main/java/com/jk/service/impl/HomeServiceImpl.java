@@ -29,18 +29,4 @@ public class HomeServiceImpl implements HomeService {
     public List<WenZhang> getTitle() {
         return homeMapper.getTitle();
     }
-
-    @Override
-    public List<Exprent> getAllzhuanjia(String tmp) {
-        if(tmp.equals("1")){   //  1  是权威专家    0   是美赞专家
-            return homeMapper.getAllzhuanjia1();
-        }else {
-            return homeMapper.getAllzhuanjia0();
-        }
-    }
-
-    @Override
-    public Exprent getJJ(String id) {
-        return homeMapper.getJJ(id);
-    }
 }

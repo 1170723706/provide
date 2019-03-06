@@ -58,7 +58,7 @@
                                content+="<tr>";
                                content+="<td>";
                                content+="<div><h4>";
-                               content+="<a id='s"+obj.id+"' href='javascript:void(0)' onclick=toView('"+obj.name+"') >"+obj.name+"</a>";
+                               content+="<a id='s"+obj.id+"' href='javascript:void(0)' onclick=toView('"+obj.name+"')>"+obj.name+"</a>";
                                content+="</h4></div>";
                                content+="<div>";
                                content+="<h5><b>"+obj.createTime+"&nbsp&nbsp&nbsp&nbsp"+"共浏览"+obj.browse+"次</b></h5>";
@@ -77,8 +77,17 @@
                    });
                  /*ajax   end*/
     }
+    function toViewName(viewName) {
+        var seTitle=$("#seTitle").val();
+        window.location.href="/wenz/toView?viewName="+viewName+"&title="+seTitle;
+    }
 </script>
 <body>
+<div style="margin-left: 20px">
+    <font size="4px"><a href='javascript:void(0)' onclick=toViewName("wenzhang") >返回</a></font>
+</div>
+<input type="hidden" id="seTitle"  th:value="${session?.wenZhang.title}">
+<input type="hidden" id="titleVal"  th:value="${param?.title}">
 <div class="row" style="width: 450px;height: 800px;">
     <h3>
         <div class="panel panel-default" style="margin-top: 5px;margin-left: 25px;width: 450px;height: 30px;">

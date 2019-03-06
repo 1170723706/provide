@@ -1,5 +1,6 @@
 package com.jk.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.jk.bean.Hotspot;
 import com.jk.mapper.HotspotMapper;
 import com.jk.service.HotspotService;
@@ -15,13 +16,21 @@ public class HotspotServiceImpl implements HotspotService {
     private HotspotMapper hotspotMapper;
 
     @Override
-    public List<Hotspot> queryHotspot() {
-        return hotspotMapper.queryHotspot();
+    public List<Hotspot> queryHotspot(Integer page, Integer rows) {
+        List <Hotspot> sum=hotspotMapper.queryHotspot(); //计算数据库符合条件的总条数   条数是固
+        PageHelper.startPage(page,rows);
+        List<Hotspot> list=hotspotMapper.queryHotspot();
+        return list;
     }
 
     @Override
     public Hotspot queryHotspotChildren(Hotspot hotspot) {
         return hotspotMapper.queryHotspotChildren(hotspot);
+    }
+
+    @Override
+    public void updateRdzxOne(Integer id) {
+         hotspotMapper.updateRdzxOne(id);
     }
 
 

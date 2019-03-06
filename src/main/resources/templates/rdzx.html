@@ -12,24 +12,25 @@
     <script src="/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script type="text/javascript">
 
-        cont = "";
+        var i = 1;
+        var a = 3;
         var seeHeight = null;
-        var scrollTop = null
+        var scrollTop = null;
         var totalHeight = null;
         $(function(){
 
             $.ajax({
-                url:'/rdzx/queryHotspot',
+                url:'/rdzx/queryHotspot?page='+i+'&rows='+a+'',
                 async:false,
                 success:function(result){
-
+                        var cont = "";
                     $.each(result,function (index,obj) {
                         cont += "<br>";
                         cont += "<div class='load_div2' style='background-color:#F3F3F3'>";
-                        cont += "<center><a href='/home/ToPage?name=rdzxone&rd_title="+obj.rd_title+"' ><img  src='" + obj.rd_img + "'width='500px' height='300px' ></a></center>"
-                        cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='/home/ToPage?name=rdzxone&rd_title="+obj.rd_title+"' >" + obj.rd_title + "</a></font><br><br>";
+                        cont += "<br/><center><a href='javascript:updateRdzxOne("+obj.id+")' ><img  src='" + obj.rd_img + "'width='500px' height='300px' ></a></center>"
+                        cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='javascript:updateRdzxOne("+obj.id+")' >" + obj.rd_title + "</a></font><br><br>";
                         cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>" + obj.rd_createtime + "&nbsp;&nbsp;&nbsp;          " + obj.rd_browse + "人观看</font><br><br>";
-
+                        cont+="</div>"
                     })
                     cont += "<div id='tt'></div>";
                     $("#content").html(cont);
@@ -60,10 +61,11 @@
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop();
             totalHeight = $(document).height();
-            // console.log(scrollTop,seeHeight,totalHeight)
+           //console.log(scrollTop,seeHeight,totalHeight)
             if(scrollTop+seeHeight+50>totalHeight){
+                i = i+1;
                 $.ajax({
-                    url: '/rdzx/queryHotspot',
+                    url: '/rdzx/queryHotspot?page=' + i + '&rows=' + a + '',
                     success: function (result) {
                         var conntt="";
                         if(result ==null){
@@ -72,11 +74,12 @@
                             $.each(result, function (index, obj) {
                                 conntt += "<br>";
                                 conntt += "<div class='load_div2' style='background-color:#F3F3F3'>";
-                                conntt += "<center><img  src='" + obj.rd_img + "'width='500px' height='300px'></center>"
-                                conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='javascript:void(0)' >" + obj.rd_title + "</a></font><br><br>";
+                                conntt += "<br/><center><a href='javascript:updateRdzxOne("+obj.id+")' ><img  src='" + obj.rd_img + "'width='500px' height='300px'></a></center>"
+                                conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='5'><a href='javascript:updateRdzxOne("+obj.id+")'  >" + obj.rd_title + "</a></font><br><br>";
                                 conntt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='3'>" + obj.rd_createtime + "&nbsp;&nbsp;&nbsp;          " + obj.rd_browse + "人观看</font><br><br>";
 
                             })
+
                             $('#tt').append(conntt);
                         }
 
@@ -90,6 +93,23 @@
 
 
         })
+
+        function updateRdzxOne(id) {
+
+             $.ajax({
+                     url:'/rdzx/updateRdzxOne',
+                     type:'post',
+                     data:{id:id},
+                     success:function () {
+
+                        location.href="/home/ToPage?name=rdzxone&id="+id;
+
+                     },error:function () {
+                         alert("ajax访问失败,请查看控制台");
+                     }
+
+                     })
+        }
 
 
     </script>

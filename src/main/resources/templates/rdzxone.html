@@ -17,24 +17,17 @@
         function queryHotspot() {
 
 
-            var rd_title=$("#rd_title").val();
+            var id=$("#rd_title").val();
 
             $.ajax({
                 url:'/rdzx/queryHotspotChildren',
                 type:'post',
-                data:{rd_title:rd_title},
+                data:{id:id},
                 success:function (result) {
                     var cont="";
-                  /* $("#rd_title2").html(data.rd_title);
-                    $("#rd_createtime").html(data.rd_createtime);
-                    $("#rd_browse").html(data.rd_browse);
-                    $("#rd_img").prop("src", data.rd_img);
-                    $("#rd_mp3").attr("src", data.rd_mp3);
-                    $("#rd_content").html(data.rd_content);*/
-
                     cont += "<div class='load_div'>";
-                    cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='6'>"+result.rd_title+"</font><br>";
-                    cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='4'>"+result.rd_createtime+"&nbsp;&nbsp;&nbsp;&nbsp;共浏览:&nbsp;&nbsp;"+result.rd_browse+"次</font><br><br>";
+                    cont += "&nbsp;&nbsp;&nbsp;&nbsp;<font size='6'>"+result.rd_title+"</font><br>";
+                    cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='4'>"+result.rd_createtime+"&nbsp;&nbsp;&nbsp;&nbsp;共浏览:&nbsp;"+result.rd_browse+"次</font><br><br>";
                     cont += "<center><img  src='" + result.rd_img + "'width='500px' height='300px'></center>"
                     cont += "<br><br><center><audio controls='controls' style='width: 550px'  src='"+result.rd_mp3+"'></audio></center><br>";
                     cont += "<div style='margin-left: 10px'><font size='5'>"+result.rd_content+"</font><div><br><br><br>";
@@ -114,7 +107,7 @@
         </div>
     </nav>
 </div>
-<input type="hidden" id="rd_title"  th:value="${param?.rd_title}">
+<input type="hidden" id="rd_title"  th:value="${param?.id}">
 <div id="content">
 
 </div>

@@ -8,5 +8,5 @@ public interface HotspotMapper {
 
     List<Hotspot> queryHotspot();
 
-    List<Hotspot> queryHotspotChildren(Integer id);
+    Hotspot queryHotspotChildren(Hotspot hotspot);
 }

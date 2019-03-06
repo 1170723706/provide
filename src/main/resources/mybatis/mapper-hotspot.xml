@@ -8,9 +8,9 @@
             select * from t_hottop
         </select>
 
-    <!--List<Hotspot> queryHotspotChildren(Integer id);-->
+    <!--Hotspot queryHotspotChildren(Hotspot hotspot);-->
     <select id="queryHotspotChildren" resultType="Hotspot">
 
-         select * from t_hottop where id=#{id}
+         select * from t_hottop where rd_title=#{rd_title}
     </select>
 </mapper>

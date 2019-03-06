@@ -8,5 +8,6 @@ public interface HotspotService {
 
     List<Hotspot> queryHotspot();
 
-    List<Hotspot> queryHotspotChildren(Integer id);
+
+    Hotspot queryHotspotChildren(Hotspot hotspot);
 }

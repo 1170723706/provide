@@ -23,10 +23,10 @@ public class HotspotController {
     }
 
     @RequestMapping("queryHotspotChildren")
-    public List<Hotspot> queryHotspotChildren(Integer id) {
+    public Hotspot queryHotspotChildren(Hotspot hotspot) {
 
-        List<Hotspot> list=hotspotService.queryHotspotChildren(id);
-        return list;
+        Hotspot hotspots=hotspotService.queryHotspotChildren(hotspot);
+        return hotspots;
     }
 
 }

@@ -20,7 +20,9 @@ public class HotspotServiceImpl implements HotspotService {
     }
 
     @Override
-    public List<Hotspot> queryHotspotChildren(Integer id) {
-        return hotspotMapper.queryHotspotChildren(id);
+    public Hotspot queryHotspotChildren(Hotspot hotspot) {
+        return hotspotMapper.queryHotspotChildren(hotspot);
     }
+
+
 }

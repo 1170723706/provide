@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.ExprentViewMapper">
+
+
+    <select id="querExprent" resultType="com.jk.bean.Guandian">
+
+        SELECT t.gd_title,t.gd_zeid,t.gd_browse from  t_guandian t
+    </select>
+
+
+
+    <select id="querExprentList" resultType="com.jk.bean.Guandian">
+
+        SELECT t.gd_title,t.gd_createtime,t.gd_browse,t.gd_content,t.gd_img,t.gd_detailed from  t_guandian t
+    </select>
+
+</mapper>

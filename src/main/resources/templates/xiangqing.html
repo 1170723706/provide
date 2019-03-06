@@ -44,7 +44,8 @@
         /*ajax   end*/
     }
     function toView() {
-        window.location.href="/wenz/toView?viewName=wenxian";
+        var nameVal=$("#nameVal").val();
+        window.location.href="/wenz/toView?viewName=wenxian&title="+nameVal;
     }
 </script>
 <body>

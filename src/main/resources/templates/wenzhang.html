@@ -48,10 +48,38 @@
     }
 
     function toView(viewName) {
-        window.location.href="/wenz/toView?viewName="+viewName;
+        var titleVal=$("#titleVal").val();
+            /*ajax   start*/
+                    $.ajax({
+                       url:"/wenz/setTitleVal",
+                       type:"POST",
+                       data:{title:titleVal},
+                       beforeSend:function(){
+                              ii = layer.msg('加载中', {
+                              icon: 16
+                              ,shade: 0.01
+                              });
+                        },
+                       success:function(a){
+                           window.location.href="/wenz/toView?viewName="+viewName+"&title="+titleVal;
+                       },
+                       error:function(){
+                          layer.msg("ajax失败");
+                       },complete:function(){
+                             layer.close(ii);
+                        }
+                   });
+                 /*ajax   end*/
+
+    }
+    function toViewName(indexView) {
+        window.location.href="/wenz/toView?viewName="+indexView;
     }
 </script>
 <body>
+<div style="margin-left: 20px">
+    <font size="4px"><a href='javascript:void(0)' onclick=toViewName("index-home") >返回</a></font>
+</div>
 <input type="hidden" id="titleVal"  th:value="${param?.title}">
 <div class="row" style="width: 450px;height: 800px;">
     <h3>

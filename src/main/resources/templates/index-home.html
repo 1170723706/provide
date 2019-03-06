@@ -92,6 +92,10 @@
                });
              /*ajax   end*/
     }
+
+    function getMorezhuanjia(tmp){
+        location.href="/home/to?tmp="+tmp;
+    }
 </script>
 <body>
     <div class="row" style="width: 600px;height: 800px;">
@@ -137,7 +141,7 @@
             <div style="margin-left: -100px;width: 430px;">
                 <ul class="breadcrumb">
                     <li><font size="4"><b>权威专家</b></font></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div style="margin-left: 323px; margin-top: -30px;"><button class="btn btn-default" style="background-color: #1c94c4">更多专家</button></div>
+                    <div style="margin-left: 323px; margin-top: -30px;"><button class="btn btn-default" style="background-color: #1c94c4" onclick="getMorezhuanjia(1)">更多专家</button></div>
                 </ul>
             </div>
             <div class="row" style="margin-left: -100px;width: 430px;">   <!--170-->
@@ -160,7 +164,7 @@
             <div style="margin-left: -100px;width: 430px;">
                 <ul class="breadcrumb">
                     <li><font size="4"><b>美赞专家</b></font></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div style="margin-left: 323px; margin-top: -30px;"><button class="btn btn-default" style="background-color: #1c94c4">更多专家</button></div>
+                    <div style="margin-left: 323px; margin-top: -30px;"><button class="btn btn-default" style="background-color: #1c94c4"  onclick="getMorezhuanjia(0)">更多专家</button></div>
                 </ul>
             </div>
             <div class="row" style="margin-left: -100px;width: 430px;">   <!--170-->

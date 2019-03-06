@@ -35,7 +35,7 @@
                             $("#img1").prop("src",a.img);
                             $("#music").attr("href",a.music);
                             console.log($("#music").attr("src",a.music))
-                            $("#content").html(a.content);
+                            $("#content").html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+a.content);
                             console.log(a);
                        },
                        error:function(){
@@ -45,6 +45,10 @@
                         }
                    });
                  /*ajax   end*/
+    }
+
+    function toView(viewName) {
+        window.location.href="/wenz/toView?viewName="+viewName;
     }
 </script>
 <body>
@@ -61,7 +65,7 @@
     </h3>
     <h4><div id="name"  style="margin-top: 25px;margin-left: 70px"></div></h4>
     <div  id="img"  style="margin-top: 10px;margin-left: 90px">
-        <img width="150px"  src="" id="img1">
+        <img width="300px"  src="" id="img1">
     </div>
     <div  style="margin-top: 5px;margin-left: 60px">
         <audio controls="controls" id="music" src=""></audio>
@@ -76,7 +80,7 @@
     </div>
     <div style="background-color: #D3D3D3;width: 450px;height: 100px;margin-left: 50px">
         <div style="float: left;margin-left: 15px ;margin-top: 15px">
-            <a  href='javascript:void(0)' onclick=toView() >
+            <a  href='javascript:void(0)' onclick=toView("wenxian") >
                 <div><img width="70px" height="60px" src="/js/img/20181204133700.jpg"></div>
                 <div>临床文献</div>
             </a>

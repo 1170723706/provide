@@ -15,4 +15,10 @@ public interface HomeService {
     List<Exprent> getAllzhuanjia(String tmp);
 
     Exprent getJJ(String id);
+
+    List<WenZhang> getGoodsWord(String id);
+
+    WenZhang getneirong(String id);
+
+    void updateBrowse(String id);
 }

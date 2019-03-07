@@ -43,4 +43,19 @@ public class HomeServiceImpl implements HomeService {
     public Exprent getJJ(String id) {
         return homeMapper.getJJ(id);
     }
+
+    @Override
+    public List<WenZhang> getGoodsWord(String id) {
+        return homeMapper.getGoodsWord(id);
+    }
+
+    @Override
+    public WenZhang getneirong(String id) {
+        return homeMapper.getneirong(id);
+    }
+
+    @Override
+    public void updateBrowse(String id) {
+        homeMapper.updateBrowse(id);
+    }
 }

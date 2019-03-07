@@ -51,6 +51,7 @@
 
     function pinglun(){
         var name = $("#name").val();
+        $("#name").val("");
         var id = $("#nameVal").val();
         $.ajax({
             url: '/bck/addPingLun',

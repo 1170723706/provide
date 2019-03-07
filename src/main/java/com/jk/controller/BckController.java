@@ -18,24 +18,23 @@ public class BckController {
 
     @ResponseBody
     @RequestMapping("queryExample1")
-    public List<Example> queryExample1(Integer page, Integer rows){
-        List<Example> list = bckService.queryExample(page,rows);
+    public List<Example> queryExample1(Integer page, Integer rows) {
+        List<Example> list = bckService.queryExample(page, rows);
         return list;
     }
 
     @ResponseBody
     @RequestMapping("queryExampleById")
-    public Example queryExampleById(Integer id){
+    public Example queryExampleById(Integer id) {
 
-        return  bckService.queryExampleById(id);
+        return bckService.queryExampleById(id);
     }
 
     @ResponseBody
     @RequestMapping("updateById")
-    public void updateById(Integer id){
-       bckService.updateById(id);
+    public void updateById(Integer id) {
+        bckService.updateById(id);
     }
-
 
 
 }

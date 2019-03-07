@@ -19,7 +19,7 @@ public class WenZhangController {
     @ResponseBody
     @RequestMapping("queryWen")
     public WenZhang queryWen(WenZhang wenZhang) {
-        WenZhang wen=wenZHangService.queryWen(wenZhang);
+        WenZhang wen = wenZHangService.queryWen(wenZhang);
         return wen;
     }
 
@@ -30,8 +30,8 @@ public class WenZhangController {
 
     @ResponseBody
     @RequestMapping("setTitleVal")
-    public String setTitleVal(HttpSession session,WenZhang wenZhang) {
-        session.setAttribute("wenZhang",wenZhang);
+    public String setTitleVal(HttpSession session, WenZhang wenZhang) {
+        session.setAttribute("wenZhang", wenZhang);
         return "";
     }
 

@@ -1,5 +1,6 @@
 package com.jk.service.impl;
 
+import com.jk.bean.DaKa;
 import com.jk.bean.Exprent;
 import com.jk.bean.WenZhang;
 import com.jk.mapper.HomeMapper;
@@ -32,9 +33,9 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public List<Exprent> getAllzhuanjia(String tmp) {
-        if(tmp.equals("1")){   //  1  是权威专家    0   是美赞专家
+        if (tmp.equals("1")) {   //  1  是权威专家    0   是美赞专家
             return homeMapper.getAllzhuanjia1();
-        }else {
+        } else {
             return homeMapper.getAllzhuanjia0();
         }
     }
@@ -57,5 +58,10 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public void updateBrowse(String id) {
         homeMapper.updateBrowse(id);
+    }
+
+    @Override
+    public DaKa getdaka(String id) {
+        return homeMapper.getdaka(id);
     }
 }

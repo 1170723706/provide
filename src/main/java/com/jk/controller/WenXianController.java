@@ -18,8 +18,8 @@ public class WenXianController {
 
     @ResponseBody
     @RequestMapping("queryWenXIan")
-    public List<WenXian>queryWenXIan() {
-        List<WenXian>list=wenXianService.queryWenXIan();
+    public List<WenXian> queryWenXIan() {
+        List<WenXian> list = wenXianService.queryWenXIan();
         return list;
     }
 
@@ -29,10 +29,11 @@ public class WenXianController {
         wenXianService.updateBrowse(wenXian);
         return "1";
     }
+
     @ResponseBody
     @RequestMapping("queryXiangQing")
     public WenXian queryXiangQing(WenXian wenXian) {
-        WenXian wx=wenXianService.queryXiangQing(wenXian);
+        WenXian wx = wenXianService.queryXiangQing(wenXian);
         return wx;
     }
 

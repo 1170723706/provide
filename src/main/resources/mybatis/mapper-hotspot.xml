@@ -8,9 +8,15 @@
             select * from t_hottop
         </select>
 
-    <!--List<Hotspot> queryHotspotChildren(Integer id);-->
+    <!--Hotspot queryHotspotChildren(Hotspot hotspot);-->
     <select id="queryHotspotChildren" resultType="Hotspot">
 
          select * from t_hottop where id=#{id}
     </select>
+
+    <!--void updateRdzxOne(Integer id);-->
+    <update id="updateRdzxOne">
+
+        update t_hottop set rd_browse=rd_browse+1 where id=#{id}
+    </update>
 </mapper>

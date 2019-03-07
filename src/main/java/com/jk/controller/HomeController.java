@@ -54,6 +54,20 @@ public class HomeController {
         return "zhuozhejj";
     }
 
+    @RequestMapping("towenzhang")
+    public String towenzhang(String id, Model model ,String tmp){
+        model.addAttribute("id",id);
+        model.addAttribute("tmp",tmp);
+        return "jingxuanwenzhang";
+    }
+
+    @RequestMapping("toneirong")
+    public String toneirong(String id, Model model,String tmp ){
+        model.addAttribute("id",id);
+        model.addAttribute("tmp",tmp);
+        return "jingxuanneirong";
+    }
+
     @ResponseBody
     @RequestMapping("getAllzhuanjia")
     public List<Exprent> getAllzhuanjia(String tmp){
@@ -64,5 +78,23 @@ public class HomeController {
     @RequestMapping("getJJ")
     public Exprent getJJ(String id){
         return homeService.getJJ(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("getGoodsWord")
+    public List<WenZhang> getGoodsWord(String id){
+        return homeService.getGoodsWord(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("getneirong")
+    public WenZhang getneirong(String id){
+        return homeService.getneirong(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("updateBrowse")
+    public void updateBrowse(String id){
+        homeService.updateBrowse(id);
     }
 }

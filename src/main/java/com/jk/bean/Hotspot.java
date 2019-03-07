@@ -2,7 +2,6 @@ package com.jk.bean;
 
 import lombok.Data;
 
-import java.util.Date;
 
 @Data
 public class Hotspot {

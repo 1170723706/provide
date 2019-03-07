@@ -18,4 +18,10 @@ public interface HomeMapper {
     List<Exprent> getAllzhuanjia0();
 
     Exprent getJJ(@Param("id") String id);
+
+    List<WenZhang> getGoodsWord(@Param("id") String id);
+
+    WenZhang getneirong(@Param("id") String id);
+
+    void updateBrowse(@Param("id") String id);
 }

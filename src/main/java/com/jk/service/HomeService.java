@@ -1,5 +1,6 @@
 package com.jk.service;
 
+import com.jk.bean.DaKa;
 import com.jk.bean.Exprent;
 import com.jk.bean.WenZhang;
 
@@ -21,4 +22,6 @@ public interface HomeService {
     WenZhang getneirong(String id);
 
     void updateBrowse(String id);
+
+    DaKa getdaka(String id);
 }

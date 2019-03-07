@@ -1,15 +1,21 @@
 package com.jk.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.jk.bean.DaKa;
 import com.jk.bean.Exprent;
+import com.jk.bean.Say;
 import com.jk.bean.WenZhang;
 import com.jk.service.HomeService;
+import com.jk.utils.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("home")
@@ -68,6 +74,12 @@ public class HomeController {
         return "jingxuanneirong";
     }
 
+    @RequestMapping("tozhuanjiaOnline")
+    public String tozhuanjiaOnline(String tmp,Model model){
+        model.addAttribute("tmp",tmp);
+        return "zhuanjiaOnline";
+    }
+
     @ResponseBody
     @RequestMapping("getAllzhuanjia")
     public List<Exprent> getAllzhuanjia(String tmp){
@@ -96,5 +108,29 @@ public class HomeController {
     @RequestMapping("updateBrowse")
     public void updateBrowse(String id){
         homeService.updateBrowse(id);
+    }
+
+    @RequestMapping("todaka")
+    public String todaka(String id, Model model ){
+        model.addAttribute("id",id);
+        return "dakaOnline";
+    }
+    @ResponseBody
+    @RequestMapping("getdaka")
+    public DaKa getdaka(String id){
+        return homeService.getdaka(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("sendSay")
+    public Say sendSay(String info){
+        Map<String, Object> params = new HashMap<>();
+        params.put("key", "bd8f47022fd1448a9e34241cb4948b54");
+        params.put("info", info);
+        String result = HttpClient.sendGet("http://www.tuling123.com/openapi/api", params);
+        JSONObject parseObject = JSONObject.parseObject(result);
+        String string2 = JSONObject.toJSONString(parseObject);
+        Say object = JSONObject.parseObject(string2,Say.class);
+        return object;
     }
 }

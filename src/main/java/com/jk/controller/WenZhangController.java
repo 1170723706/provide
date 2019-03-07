@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("wenz")
-public class WenZhangController {
+public class
+WenZhangController {
 
     @Resource
     private WenZHangService wenZHangService;

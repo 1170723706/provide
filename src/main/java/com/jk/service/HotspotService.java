@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface HotspotService {
 
-    List<Hotspot> queryHotspot();
+    List<Hotspot> queryHotspot(Integer page, Integer rows);
 
-    List<Hotspot> queryHotspotChildren(Integer id);
+
+    Hotspot queryHotspotChildren(Hotspot hotspot);
+
+    void updateRdzxOne(Integer id);
 }

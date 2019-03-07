@@ -18,6 +18,9 @@
     function getJJ(id,tmp) {
         location.href="/home/tojj?id="+id+"&tmp="+tmp;
     }
+    function getwenzhang(id,tmp) {
+        location.href="/home/towenzhang?id="+id+"&tmp="+tmp;
+    }
     function loadzhuanjia() {
         var tmp = $("#tmp").val();
         $("#tmp2").val(tmp);
@@ -44,7 +47,7 @@
                         content += "<img style='margin-left: 14px;border-radius: 10px;margin-top: 11px;' src='"+obj.dt_img+"' height='200px' width=200px/>";
                         content +="<div style='margin-left: 14px;'>";
                         content +="<font size='5' color='#6495ed'>"+obj.dt_name+"</font><br><font size='3' color='#6495ed'>营养学教授</font><br><font size='3'>"+obj.dt_addr+"</font>";
-                        content +="<div><input class=\"btn btn-primary btn-sm\"style=\"border-radius: 10px;margin-left: 29px;\" onclick='getJJ("+obj.id+","+$("#tmp2").val()+")' type='button'value='个人简介'><input style=\"border-radius: 10px;\" class=\"btn btn-default btn-sm\" type='button' value=\"精选文章\"></div>";
+                        content +="<div><input class=\"btn btn-primary btn-sm\"style=\"border-radius: 10px;margin-left: 29px;\" onclick='getJJ("+obj.id+","+$("#tmp2").val()+")' type='button'value='个人简介'><input style=\"border-radius: 10px;\" onclick='getwenzhang("+obj.id+","+$("#tmp2").val()+")' class=\"btn btn-default btn-sm\" type='button' value=\"精选文章\"></div>";
                         content +="</div></div></div>";
                         content += q%2==0?"</div>":" ";
                         $("#div1").html(content);

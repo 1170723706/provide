@@ -12,14 +12,14 @@ public class Example {
     private Integer id;
     private String em_title;
     private Integer em_zeid;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date em_createtime;
     private Integer em_browse;
     private Integer em_medal;
     private String em_img;
-     String em_mp3;
-     String em_content;
+    String em_mp3;
+    String em_content;
     String dt_name;
     String dt_zc;
     String dt_addr;
@@ -28,4 +28,5 @@ public class Example {
     String dt_modle;
     Integer dt_level;
     Integer dt_qw;
+    Integer aaa;
 }

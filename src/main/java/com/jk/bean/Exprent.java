@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Exprent {
-    Integer id ;
+    Integer id;
     String dt_name;
     String dt_zc;
     String dt_addr;

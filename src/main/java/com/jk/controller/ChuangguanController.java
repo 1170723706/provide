@@ -34,6 +34,7 @@ public class ChuangguanController {
     @RequestMapping("findItme")
     public List<Answer> findItme(Integer page, Integer rows) {
 
+        PageHelper.startPage(page,rows);
         List<Answer> find = mongoTemplate.find(null, Answer.class);
         return find;
     }

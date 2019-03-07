@@ -17,10 +17,10 @@ public class BckServiceImpl implements BckService {
 
 
     @Override
-    public  List <Example> queryExample(Integer page, Integer rows) {
-        List <Example> sum=bckMapper.queryExample(); //计算数据库符合条件的总条数   条数是固
-        PageHelper.startPage(page,rows);
-        List <Example> list=bckMapper.queryExample(); //当前页面数据 其大小取决于 每页多少条
+    public List<Example> queryExample(Integer page, Integer rows) {
+        List<Example> sum = bckMapper.queryExample(); //计算数据库符合条件的总条数   条数是固
+        PageHelper.startPage(page, rows);
+        List<Example> list = bckMapper.queryExample(); //当前页面数据 其大小取决于 每页多少条
         return list;
     }
 
@@ -31,6 +31,6 @@ public class BckServiceImpl implements BckService {
 
     @Override
     public void updateById(Integer id) {
-         bckMapper.updateById(id);
+        bckMapper.updateById(id);
     }
 }

@@ -10,21 +10,21 @@
     <!--List<Exprent> getzanmei();-->
     <select id="getzanmei" resultType="exprent">
         SELECT
-            t.*
+        t.*
         FROM
-            t_docutor_expert t
+        t_docutor_expert t
         LEFT JOIN
-          t_wenzhang w
+        t_wenzhang w
         ON
-          t.id = w.zeid
+        t.id = w.zeid
         GROUP BY
-          w.browse DESC
+        w.browse DESC
         LIMIT 3
     </select>
 
     <!--List<WenZhang> getTitle();-->
     <select id="getTitle" resultType="wenzhang">
-        select  *  from   t_wenzhang w order by  w.creaTime desc LIMIT 5
+        select * from t_wenzhang w order by w.creaTime desc LIMIT 5
     </select>
 
     <!--List<Exprent> getAllzhuanjia1();-->
@@ -34,16 +34,16 @@
 
     <!--List<Exprent> getAllzhuanjia0();-->
     <select id="getAllzhuanjia0" resultType="exprent">
-         SELECT
-            t.*
+        SELECT
+        t.*
         FROM
-            t_docutor_expert t
+        t_docutor_expert t
         LEFT JOIN
-          t_wenzhang w
+        t_wenzhang w
         ON
-          t.id = w.zeid
+        t.id = w.zeid
         GROUP BY
-          w.browse DESC
+        w.browse DESC
     </select>
 
     <!--Exprent getJJ(String id);-->

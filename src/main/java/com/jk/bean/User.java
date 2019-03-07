@@ -17,7 +17,7 @@ public class User implements Serializable {
     String remempwd;
     String username;
     String email;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date createtime;
     Integer status;

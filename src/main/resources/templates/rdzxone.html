@@ -4,42 +4,42 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/rdzx/css/menu.css" media="all">
-    <script type="text/javascript" src="/rdzx/js/jquery-1.9.1.js" ></script>
-    <script type="text/javascript" src="/rdzx/js/jquery.masonry.min.js" ></script>
+    <script type="text/javascript" src="/rdzx/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/rdzx/js/jquery.masonry.min.js"></script>
     <script type="text/javascript">
 
-        $(function(){
+        $(function () {
 
             queryHotspot();
         })
 
         function queryHotspot() {
 
-            var conent="";
+            var conent = "";
             $.ajax({
-                url:'/rdzx/queryHotspotChildren',
-                type:'post',
-                data:{id:id},
-                success:function (data) {
+                url: '/rdzx/queryHotspotChildren',
+                type: 'post',
+                data: {id: id},
+                success: function (data) {
 
-                    $.each(data,function (index,obj) {
-                        conent+="<div id='pageCon' class='match_page masonry' style='padding-bottom: 30px'>";
-                        conent+=" <ul class='list_box masonry clearfix'  >";
-                        conent+="<li class='picCon masonry-brick'><div>";
-                        conent+="<div class='tou'><div class='divP'>";
-                        conent+="<span>"+obj.rd_title+"</span>";
-                        conent+="<span>"+obj.rd_createtime+"&nbsp;&nbsp;&nbsp;&nbsp;"+obj.rd_browse+"人观看</span>";
-                        conent+="</div></div>";
-                        conent+="<a href="+obj.rd_url+" class='img'><img src="+obj.rd_img+" /></a>";
-                        conent+="</div></li>";
-                        conent+="</ul>";
-                        conent+="</div>";
+                    $.each(data, function (index, obj) {
+                        conent += "<div id='pageCon' class='match_page masonry' style='padding-bottom: 30px'>";
+                        conent += " <ul class='list_box masonry clearfix'  >";
+                        conent += "<li class='picCon masonry-brick'><div>";
+                        conent += "<div class='tou'><div class='divP'>";
+                        conent += "<span>" + obj.rd_title + "</span>";
+                        conent += "<span>" + obj.rd_createtime + "&nbsp;&nbsp;&nbsp;&nbsp;" + obj.rd_browse + "人观看</span>";
+                        conent += "</div></div>";
+                        conent += "<a href=" + obj.rd_url + " class='img'><img src=" + obj.rd_img + " /></a>";
+                        conent += "</div></li>";
+                        conent += "</ul>";
+                        conent += "</div>";
                     })
 
 
                     $("#rdzx").html(conent);
 
-                },error:function () {
+                }, error: function () {
                     alert("ajax访问失败,请查看控制台");
                 }
 
@@ -52,41 +52,41 @@
 </head>
 
 <body>
-    <div class="content">
-        <div id="pageCon" class="match_page masonry" >
-            <ul class="list_box masonry clearfix"  >
-                <li class="picCon masonry-brick">
-                    <div>
-                        <a href="javascript:void(0)" class="img">
-                            <img src="/rdzx/img/2.jpg" height="50px"/>
-                        </a>
-                        <div class="tou">
+<div class="content">
+    <div id="pageCon" class="match_page masonry">
+        <ul class="list_box masonry clearfix">
+            <li class="picCon masonry-brick">
+                <div>
+                    <a href="javascript:void(0)" class="img">
+                        <img src="/rdzx/img/2.jpg" height="50px"/>
+                    </a>
+                    <div class="tou">
 
-                            <span><a href="javascript:history.go(-1);">返回</a><center><h3>热点资讯</h3></center></span>
-                        </div>
+                        <span><a href="javascript:history.go(-1);">返回</a><center><h3>热点资讯</h3></center></span>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div class="content" id="rdzx">
-       <!-- <div id="pageCon" class="match_page masonry" style="padding-bottom: 30px">
-            <ul class="list_box masonry clearfix"  >
-                &lt;!&ndash;<li class="picCon masonry-brick">
-                    &lt;!&ndash;<div>
-                        <a href="javascript:void(0)" class="img">
-                            <img src="img/2.jpg" />
-                        </a>
-                        <div class="tou">
-                            <div class="divP">
-                                <span>张三</span>
-                                <span>234434票</span>
-                            </div>
-                        </div>&lt;!&ndash;/tou&ndash;&gt;
-                    </div>&ndash;&gt;
-                </li>&ndash;&gt;
-            </ul>
-        </div>-->
-    </div>
+</div>
+<div class="content" id="rdzx">
+    <!-- <div id="pageCon" class="match_page masonry" style="padding-bottom: 30px">
+         <ul class="list_box masonry clearfix"  >
+             &lt;!&ndash;<li class="picCon masonry-brick">
+                 &lt;!&ndash;<div>
+                     <a href="javascript:void(0)" class="img">
+                         <img src="img/2.jpg" />
+                     </a>
+                     <div class="tou">
+                         <div class="divP">
+                             <span>张三</span>
+                             <span>234434票</span>
+                         </div>
+                     </div>&lt;!&ndash;/tou&ndash;&gt;
+                 </div>&ndash;&gt;
+             </li>&ndash;&gt;
+         </ul>
+     </div>-->
+</div>
 </body>
 </html>

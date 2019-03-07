@@ -10,26 +10,26 @@
 
 </head>
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         var id = $("#nameVal").val();
         var cont = "";
         $.ajax({
             url: '/bck/queryExampleById',
-            data:{id:id},
+            data: {id: id},
             success: function (result) {
                 cont += "<div class='load_div'>";
-                cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='6'>"+result.em_title+"</font><br>";
-                cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='4'>"+result.em_createtime+"&nbsp;&nbsp;&nbsp;&nbsp;共浏览:&nbsp;&nbsp;&nbsp;&nbsp;"+result.em_browse+"</font><br><br>";
+                cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='6'>" + result.em_title + "</font><br>";
+                cont += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='4'>" + result.em_createtime + "&nbsp;&nbsp;&nbsp;&nbsp;共浏览:&nbsp;&nbsp;&nbsp;&nbsp;" + result.em_browse + "</font><br><br>";
                 cont += "<div style='margin-left: 10px' >" +
-                    "<div style='margin-left: 10px;float:left'><img src='"+result.dt_img+"'width='200px' height='200px'></div>" +
-                    "<div style='margin-left: 10px;float:left;width: 280px'><p><font size='5'>"+result.dt_name+"</font></p><p><font size='4'>"+result.dt_zc+"</font></p><p><font size='4'>"+result.dt_addr+"</font></p><p><span>"+result.dt_jj+"</span></p></div>";
-                cont += "<br><br><center><audio controls='controls' style='width: 550px'  src='"+result.em_mp3+"'></audio></center><br>";
-                cont += "<div style='margin-left: 10px'><font size='5'>"+result.em_content+"</font><div><br><br><br>";
+                    "<div style='margin-left: 10px;float:left'><img src='" + result.dt_img + "'width='200px' height='200px'></div>" +
+                    "<div style='margin-left: 10px;float:left;width: 280px'><p><font size='5'>" + result.dt_name + "</font></p><p><font size='4'>" + result.dt_zc + "</font></p><p><font size='4'>" + result.dt_addr + "</font></p><p><span>" + result.dt_jj + "</span></p></div>";
+                cont += "<br><br><center><audio controls='controls' style='width: 550px'  src='" + result.em_mp3 + "'></audio></center><br>";
+                cont += "<div style='margin-left: 10px'><font size='5'>" + result.em_content + "</font><div><br><br><br>";
                 cont += "<div style='width: 550px;height: 50px;background-color: #F3F3F3;margin-left: 10px'>*感谢您的阅读，如您有任何问题，点击文末右侧留言提问按钮，留下您的问题，作者奖尽快回复您。</div>"
                 cont += "</div><br><br><br>";
                 $('#content').html(cont);
             },
-            error:function(){
+            error: function () {
                 alert("失败");
             }
         })
@@ -41,11 +41,12 @@
 </script>
 <body>
 <style type="text/css">
-    body,div{
-        margin:0;
-        padding:0;
+    body, div {
+        margin: 0;
+        padding: 0;
     }
-    body{
+
+    body {
         width: 600px;
         background-color: #FFFFFF;
         display: flex;
@@ -54,10 +55,11 @@
         border: 1px solid #FFFFFF;
         justify-content: flex-start;
     }
-    .load_div{
+
+    .load_div {
         width: 600px;
         height: 450px;
-        border:1px solid #FFFFFF;
+        border: 1px solid #FFFFFF;
     }
 </style>
 <div style='height: 80px;width: 600px'>
@@ -97,7 +99,7 @@
         </div>
     </nav>
 </div>
-<input type="hidden"  id="nameVal"  th:value="${param?.id}">
+<input type="hidden" id="nameVal" th:value="${param?.id}">
 <div id="content">
 
 </div>

@@ -11,7 +11,7 @@ public class WenXian {
 
     Integer id;
     String name;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date createTime;
     Integer browse;

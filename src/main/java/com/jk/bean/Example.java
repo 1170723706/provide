@@ -28,4 +28,5 @@ public class Example {
     String dt_modle;
     Integer dt_level;
     Integer dt_qw;
+    Integer aaa;
 }

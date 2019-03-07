@@ -9,22 +9,22 @@
 
     <!--List<Exprent> getzanmei();-->
     <select id="getzanmei" resultType="exprent">
-        SELECT
-        t.*
+       SELECT
+            t.*
         FROM
-        t_docutor_expert t
+            t_docutor_expert t
         LEFT JOIN
-        t_wenzhang w
+         (select sum(w.browse) browse,w.zeid FROM t_wenzhang w GROUP BY w.zeid) w
         ON
-        t.id = w.zeid
+          t.id = w.zeid
         GROUP BY
-        w.browse DESC
+          w.browse DESC
         LIMIT 3
     </select>
 
     <!--List<WenZhang> getTitle();-->
     <select id="getTitle" resultType="wenzhang">
-        select * from t_wenzhang w order by w.creaTime desc LIMIT 5
+        select  *  from   t_wenzhang w order by  w.creaTime desc LIMIT 5
     </select>
 
     <!--List<Exprent> getAllzhuanjia1();-->
@@ -34,20 +34,35 @@
 
     <!--List<Exprent> getAllzhuanjia0();-->
     <select id="getAllzhuanjia0" resultType="exprent">
-        SELECT
-        t.*
+       SELECT
+            t.*
         FROM
-        t_docutor_expert t
+            t_docutor_expert t
         LEFT JOIN
-        t_wenzhang w
+         (select sum(w.browse) browse,w.zeid FROM t_wenzhang w GROUP BY w.zeid) w
         ON
-        t.id = w.zeid
+          t.id = w.zeid
         GROUP BY
-        w.browse DESC
+          w.browse DESC
     </select>
 
     <!--Exprent getJJ(String id);-->
     <select id="getJJ" resultType="exprent">
         select * from t_docutor_expert where id = ${id}
     </select>
+
+    <!--List<WenZhang> getGoodsWord(String id);-->
+    <select id="getGoodsWord" resultType="WenZhang">
+        select  *  from   t_wenzhang w where zeid = ${id} order by  w.creaTime desc
+    </select>
+
+    <!--WenZhang getneirong(String id);-->
+    <select id="getneirong" resultType="WenZhang">
+        select  *  from   t_wenzhang w where id = ${id}
+    </select>
+
+    <!--void updateBrowse(String id);-->
+    <update id="updateBrowse">
+        update  t_wenzhang w SET w.browse = w.browse +1 where id = ${id}
+    </update>
 </mapper>

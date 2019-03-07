@@ -23,8 +23,6 @@ public class User implements Serializable {
     Integer status;
     String phone;
 
-    private String userName;
-
     private Integer userCount;
 
     private String img;

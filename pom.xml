@@ -133,7 +133,6 @@
             <artifactId>spring-data-mongodb</artifactId>
             <version>1.10.18.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>

@@ -2,7 +2,6 @@ package com.jk.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.jk.bean.Answer;
-import com.jk.bean.Hotspot;
 import com.jk.bean.User;
 import com.jk.service.ChuangguanService;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.awt.print.Book;
 import java.util.List;
 
 @RestController
@@ -24,17 +22,17 @@ public class ChuangguanController {
     MongoTemplate mongoTemplate;
 
     @RequestMapping("queryChuangguan")
-    public List<User> queryChuangguan(Integer page,Integer rows) {
+    public List<User> queryChuangguan() {
 
-        List<User> sum=chuangguanService.queryChuangguan();
-        PageHelper.startPage(page,rows);
         List<User> list=chuangguanService.queryChuangguan();
         return list;
+
+
     }
 
     @ResponseBody
     @RequestMapping("findItme")
-    public List<Answer> findItme() {
+    public List<Answer> findItme(Integer page, Integer rows) {
 
         List<Answer> find = mongoTemplate.find(null, Answer.class);
         return find;

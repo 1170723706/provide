@@ -31,7 +31,7 @@
             success:function(a){
                 console.log(a);
                 $("#name").html(a.name);
-                var timeAndBrowse="<b>"+a.createTime+"&nbsp&nbsp&nbsp 共浏览: "+a.browse+"次</b>";
+                var timeAndBrowse="<b>"+a.createTime+"&nbsp&nbsp&nbsp 共浏览: <font color='red'>"+a.browse+"</font>次</b>";
                 $("#timeAndBrowse").html(timeAndBrowse);
                 $("#content").html("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+a.content);
             },

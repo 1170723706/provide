@@ -32,9 +32,8 @@ public class ChuangguanController {
 
     @ResponseBody
     @RequestMapping("findItme")
-    public List<Answer> findItme(Integer page, Integer rows) {
+    public List<Answer> findItme() {
 
-        PageHelper.startPage(page,rows);
         List<Answer> find = mongoTemplate.find(null, Answer.class);
         return find;
     }
@@ -43,7 +42,7 @@ public class ChuangguanController {
     @RequestMapping("insertItme")
     public String insertItme(Answer answer) {
 
-        answer.setId(6);
+        answer.setId(8);
         answer.setContent("主任医师,住院医师,副主任医师,实习医生,在校院生,其他");
         answer.setTitle("您现在的职称是");
         mongoTemplate.insert(answer);

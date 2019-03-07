@@ -16,17 +16,19 @@ public class HotspotController {
     private HotspotService hotspotService;
 
     @RequestMapping("queryHotspot")
-    public List<Hotspot> queryHotspot(Integer page, Integer rows) {
+    public List<Hotspot> queryHotspot(Integer page,Integer rows) {
 
         List<Hotspot> list=hotspotService.queryHotspot(page,rows);
         return list;
+
     }
 
     @RequestMapping("queryHotspotChildren")
     public Hotspot queryHotspotChildren(Hotspot hotspot) {
 
-        Hotspot hotspots=hotspotService.queryHotspotChildren(hotspot);
-        return hotspots;
+        Hotspot hotspot1 = hotspotService.queryHotspotChildren(hotspot);
+        return hotspot1;
+
     }
 
     @RequestMapping("updateRdzxOne")
@@ -35,5 +37,4 @@ public class HotspotController {
         hotspotService.updateRdzxOne(id);
 
     }
-
 }

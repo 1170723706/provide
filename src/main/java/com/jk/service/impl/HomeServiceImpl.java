@@ -32,9 +32,9 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public List<Exprent> getAllzhuanjia(String tmp) {
-        if(tmp.equals("1")){   //  1  是权威专家    0   是美赞专家
+        if (tmp.equals("1")) {   //  1  是权威专家    0   是美赞专家
             return homeMapper.getAllzhuanjia1();
-        }else {
+        } else {
             return homeMapper.getAllzhuanjia0();
         }
     }

@@ -11,12 +11,12 @@ public class WenZhang {
 
     Integer id;
     String title;
-    String name ;
+    String name;
     String img;
     String music;
     String content;
     Integer browse;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date creaTime;
     Integer zeid;

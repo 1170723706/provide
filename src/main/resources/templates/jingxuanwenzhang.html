@@ -41,8 +41,8 @@ function getjingxuanwenzhang(){
                    var content = "";
                 $.each(a,function(index,obj){
                     content += "<div style='border-radius: 10px;background-color: #b8eecf;width:520px;height: 325px;margin-left: 55px;margin-top: 20px;'>";
-                    content +="<a href='/home/toneirong?id="+obj.id+"&tmp="+tmp+"' onclick='updateBrowse("+obj.id+")'><img style='border-radius: 10px;margin-top: 19px;margin-left: 61px;' src='"+obj.img+"' height='200px' width=400px/></a>";
-                    content +="<div style='margin-left: 80px; margin-top: 24px;'><a onclick='updateBrowse("+obj.id+")' href='/home/toneirong?id="+obj.id+"&tmp="+tmp+"'><font size='5'>"+obj.title+"</font></a></div>";
+                    content +="<a href='javascript:updateBrowse("+obj.id+","+tmp+")'><img style='border-radius: 10px;margin-top: 19px;margin-left: 61px;' src='"+obj.img+"' height='200px' width=400px/></a>";
+                    content +="<div style='margin-left: 80px; margin-top: 24px;'><a href='javascript:updateBrowse("+obj.id+","+tmp+")'  ><font size='5'>"+obj.title+"</font></a></div>";
                     content +="<div style='margin-top: 3px;margin-left:  80px;'><font size='3' color='#5f9ea0'>"+obj.creaTime+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+obj.browse+"人观看&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;奖章数</font></div></div>";
                     $("#span1").html(content);
                 });
@@ -55,8 +55,26 @@ function getjingxuanwenzhang(){
            });
          /*ajax   end*/
     }
-    function updateBrowse(id) {
-        location.href="/home/updateBrowse?id="+id;
+    function updateBrowse(id,tmp) {
+        /*ajax   start*/
+                $.ajax({
+                   url:"/home/updateBrowse",
+                   data:{id:id},
+                   beforeSend:function(){
+                          ii = layer.msg('加载中', {
+                          icon: 16
+                          ,shade: 0.01
+                          });
+                    },
+                   success:function(a){
+                   },
+                   error:function(){
+                      layer.msg("ajax失败");
+                   },complete:function(){
+                         layer.close(ii);
+                    }
+               });
+        location.href="/home/toneirong?id="+id+"&tmp="+tmp;
     }
 </script>
 <body>

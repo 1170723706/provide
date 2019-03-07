@@ -57,6 +57,7 @@
             data: {content: name,em_id:id},
             success: function () {
                 layer.msg('留言成功!!', {time:1000, icon:1});
+                $('#aa').html("");
                 getPingLun();
             }
         })
@@ -71,10 +72,12 @@
             data:{id:id},
             success: function (result) {
                 $.each(result, function (index, obj) {
+                    contt += "<div style='width: 600px;height: 110px'>";
                     contt += "<div style='width: 100px;margin-left: 50px;float: left'><img width='100px' height='100px' class='img-circle' src='"+obj.img+"'></div>";
                     contt += "<div style='width: 400px;float: left;margin-left: 20px'><p><font size='5' color='#a9a9a9'>"+obj.name+"</font></p><p><font size='4'>"+obj.content+"</font></p></div><br>";
+                    contt += "</div><br>";
                 })
-                $('#aa').html(contt);
+                $('#aa').append(contt);
             }
         })
     }

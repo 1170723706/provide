@@ -15,8 +15,9 @@
     $(function (){
         getdaka();
     });
-    function getdaka() {
-        var id = $("#id1").val();
+    var id = "";
+        function getdaka() {
+         id = $("#id1").val();
         /*ajax   start*/
                 $.ajax({
                    url:"/home/getdaka",
@@ -45,7 +46,8 @@
              /*ajax   end*/
     }
     function tozhuanjiaOnline(){
-        location.href="/home/tozhuanjiaOnline?tmp"+$("#tmp").val();
+            var tmp123 = id;
+        location.href="/home/tozhuanjiaOnline?id="+tmp123;
     }
 </script>
 <body>
@@ -61,7 +63,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="href1" class="navbar-brand" href="">&nbsp;&nbsp;&nbsp;返回</a>
+                <a id="href1" class="navbar-brand" href="http://localhost:2001/home/ToPage?name=zjzja">&nbsp;&nbsp;&nbsp;返回</a>
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav">

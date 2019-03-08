@@ -11,10 +11,13 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("wenz")
-public class WenZhangController {
+public class
+WenZhangController {
 
     @Resource
     private WenZHangService wenZHangService;
+
+    //wuyong
 
     @ResponseBody
     @RequestMapping("queryWen")
@@ -35,5 +38,4 @@ public class WenZhangController {
         return "";
     }
 
-    //我就是想拉一下
 }

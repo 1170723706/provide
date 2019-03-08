@@ -27,4 +27,6 @@ public interface HomeMapper {
     void updateBrowse(@Param("id") String id);
 
     DaKa getdaka(@Param("id") String id);
+
+    List<DaKa> getMaster();
 }

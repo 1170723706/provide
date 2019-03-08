@@ -10,12 +10,11 @@
     <script src="/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 </head>
 <script type="text/javascript">
-    var img = "https://doctorimg.oss-cn-beijing.aliyuncs.com/A7%5D%7EA%5DHN%25%60C7%24%283M5PHBXDY.png?Expires=1552008559&OSSAccessKeyId=TMP.AQF6tNjfldXvqT1Olj8w9Q9uTluEJhBz8O6YvqxtirQIQrmHBOGvxc5xKhBQAAAwLAIUGiOKYb4QFMyOYb45roOvVO62cWACFEhAW-2xeQjQa_jDRL7lFsUkTOOv&Signature=%2FN2sWa%2Bk59j6KlGC8DeMdiJem48%3D";
+    var img = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4101395094,4199371826&fm=26&gp=0.jpg";
     var ii = 0;
     $(function (){
         var tmp = $("#tmp").val();
         $("#href1").prop("href","http://localhost:2001/home/todaka?id="+tmp);
-
         var asd2 = "<sapn><div style='background-color: #b8eecf;width: 200px;margin-left: 70px; margin-top: 15px; border-radius: 10px;padding-block-start: 10px;padding-block-end: 5px;padding-left: 15px;'>";
         asd2 +="<font  size='3'>请说您想问的？老铁帮你一一解答</font></div>";
         asd2 +="<img class='img-circle' style='width: 52px;margin-top: -80px;margin-left: 10px;' src='"+img+"'></sapn>"
@@ -26,7 +25,7 @@
         var shuchu = $("#shuchu").val();
         var content = "<span><div style='background-color: #b8eecf;width: 200px;margin-left: 240px; margin-top: 15px; border-radius: 10px;padding-block-start: 10px;padding-block-end: 5px;'>";
             content +="<font size='3' style='margin-left: 13px;'>"+shuchu+"</font></div>";
-            content +="<img class='img-circle' style='margin-left: 448px;width: 52px;margin-top: -60px;' src='“+img+”'></span>";
+            content +="<img class='img-circle' style='margin-left: 448px;width: 52px;margin-top: -60px;' src='"+img+"'></span>";
             $("#say1").append(content);
         /*ajax   start*/
                 $.ajax({

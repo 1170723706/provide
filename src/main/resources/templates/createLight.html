@@ -86,8 +86,15 @@
                    });
                  /*ajax   end*/
     }
+
+    function toViewName(indexView) {
+        window.location.href = "/wenz/toView?viewName=" + indexView;
+    }
 </script>
 <body>
+<div style="margin-left: 20px">
+    <font size="4px"><a href='javascript:void(0)' onclick=toViewName("index-home")>返回</a></font>
+</div>
 <div class="row" style="width: 450px;height: 800px;">
     <h2>
         <div class="panel panel-default" style="margin-top: 5px;margin-left: 25px;width: 450px;height: 30px;">
@@ -105,7 +112,7 @@
             <table id="table" border="1px"></table>
         </form>
         <div style="margin-left: 120px;margin-top: 5px">
-            <button onclick="toCg()" class="layui-btn layui-btn-normal layui-btn-radius">百搭按钮</button>
+            <button onclick="toCg()" class="layui-btn layui-btn-normal layui-btn-radius">提交答案</button>
         </div>
     </div>
     <!--table end-->

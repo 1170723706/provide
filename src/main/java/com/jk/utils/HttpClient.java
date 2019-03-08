@@ -5,7 +5,7 @@
  * 创建日期:2018年12月9日下午5:43:51 
  * Copyright (c) 2018, wzstart@126.com All Rights Reserved.</pre> 
  */
-package com.jk.util;
+package com.jk.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

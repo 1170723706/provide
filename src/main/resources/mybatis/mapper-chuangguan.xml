@@ -5,7 +5,9 @@
 
         <!-- List<User> queryChuangguan();-->
     <select id="queryChuangguan" resultType="User">
-        select username as username,count as userCount,img from t_user order by count desc;
+
+        select username as username,count as userCount,img,title from t_user order by count desc;
+
     </select>
 
 

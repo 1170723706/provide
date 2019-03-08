@@ -18,32 +18,39 @@
                      type:'post',
                      success:function (data) {
 
-                         console.log(data);
-                        var conent="";
-                         conent+=" <img src='/images/4.jpg' height='100' width='400'>";
-                         conent+="<br><br>闯关排行榜";
+
+                        var conent = "";
+                         conent+="<div class='load_div2' style='background-color:#FFFFFF;width:548px;height:150px'>";
+                         conent+=" <img src='/images/4.jpg' height='100' width='548'>";
+
+                         conent += "</div>";
+                         conent+="<div class='load_div2' style='background-color:#FFFFFF;width:548px;height:150px'>";
+                         conent+="&nbsp;&nbsp;闯关排行榜";
                          conent+="<ul> ";
 
                          $.each(data,function (index,obj) {
 
                              conent+="<li style='width:50%;float:left'>NO"+(number+1)+".我是"+obj.username+"&nbsp;&nbsp;&nbsp;&nbsp;共闯关"+obj.userCount+"次</li>  ";
+
                              number++;
                              /*console.log(number);*/
 
                          })
 
-                         $.each(data,function (index,obj) {
-                             conent += "<div class='col-md-6'><div style='width: 230px;height: 355px;background-color: #9acfea;margin-top: 24px;margin-left:10px;border-radius: 10px;'>";
-                             conent += "<img style='margin-left: 14px;border-radius: 10px;margin-top: 11px;' src='"+obj.img+"' height='200px' width=200px/>";
-                             conent +="<font size='5' color='#6495ed'>"+obj.title+"</font><br>";
-                             conent+="</div>";
-                         })
                          conent += "</ul>";
                          conent += "</div>";
+                         conent+="<div class='load_div2' style='background-color:#FFFFFF;width:548px;height:600px'>";
+                      $.each(data,function (index,obj) {
 
+                          conent+="<div style='float:left'>"
+                          conent+=" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='/home/ToPage?name=diaocha'><img src="+obj.img+" height='100' width='200' ></a><br>";
+                          conent+="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size='2'>"+obj.title+"</font>";
+                          conent+="</div>";
 
+                         })
+                         conent+="</div>";
 
-                         $("#div1").html(conent);
+                         $("#content").html(conent);
 
                      },error:function () {
                          alert("ajax访问失败,请查看控制台");
@@ -60,6 +67,23 @@
 
 
     </script>
+
+    <style type="text/css">
+        body,div{
+            margin:0;
+            padding:0;
+        }
+        body{
+            width: 600px;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            border: 1px solid #FFFFFF;
+            justify-content: flex-start;
+        }
+
+    </style>
 
 
 </head>
@@ -80,12 +104,9 @@
         </div>
     </nav>
 </div>
-<div id="div1" style="width: 550px;height: 800px;margin-left: 30px;">
+<div id="content">
 
 </div>
-
-
-
 
 
 

@@ -23,4 +23,9 @@ public class User implements Serializable {
     Integer status;
     String phone;
 
+    private Integer userCount;
+
+    private String img;
+
+    private String title;
 }

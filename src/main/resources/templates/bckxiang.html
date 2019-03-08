@@ -53,6 +53,9 @@
         var name = $("#name").val();
         $("#name").val("");
         var id = $("#nameVal").val();
+        if(name==null | name == ""){
+            layer.msg('请输入!!', {time:1000, icon:2});
+        }else{
         $.ajax({
             url: '/bck/addPingLun',
             data: {content: name,em_id:id},
@@ -62,7 +65,7 @@
                 getPingLun();
             }
         })
-
+        }
     }
 
     function getPingLun(){

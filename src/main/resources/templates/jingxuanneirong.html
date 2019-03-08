@@ -49,17 +49,20 @@ function getneirong() {
         var name = $("#name").val();
         $("#name").val("");
         var id = $("#id1").val();
-        $.ajax({
-            url: '/bck/addPingLun2',
-            async:false,
-            data: {content: name,em_id:id},
-            success: function () {
-                layer.msg('留言成功!!', {time:1000, icon:1});
-                $('#aa').html("");
-                getPingLun();
-            }
-        })
-
+        if(name==null | name == ""){
+            layer.msg('请输入!!', {time:1000, icon:2});
+        }else {
+            $.ajax({
+                url: '/bck/addPingLun2',
+                async: false,
+                data: {content: name, em_id: id},
+                success: function () {
+                    layer.msg('留言成功!!', {time: 1000, icon: 1});
+                    $('#aa').html("");
+                    getPingLun();
+                }
+            })
+        }
     }
 
     function getPingLun(){

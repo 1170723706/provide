@@ -68,12 +68,17 @@
 
     <!--DaKa getdaka(String id);-->
     <select id="getdaka" resultType="DaKa" >
-              SELECT
+          SELECT
             m.*, d.*
         FROM
             t_master m
         LEFT JOIN t_docutor_expert d ON m.zjid = d.id
         WHERE
-            m.id = 2
+            m.id = ${id}
+    </select>
+
+    <!--List<DaKa> getMaster();-->
+    <select id="getMaster" resultType="DaKa">
+        select * from t_master
     </select>
 </mapper>

@@ -6,7 +6,7 @@ import com.jk.bean.Exprent;
 import com.jk.bean.Say;
 import com.jk.bean.WenZhang;
 import com.jk.service.HomeService;
-import com.jk.utils.HttpClient;
+import com.jk.util.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,8 +76,8 @@ public class HomeController {
     }
 
     @RequestMapping("tozhuanjiaOnline")
-    public String tozhuanjiaOnline(String tmp,Model model){
-        model.addAttribute("tmp",tmp);
+    public String tozhuanjiaOnline(String id,Model model){
+        model.addAttribute("tmp",id);
         return "zhuanjiaOnline";
     }
 
@@ -133,5 +133,11 @@ public class HomeController {
         String string2 = JSONObject.toJSONString(parseObject);
         Say object = JSONObject.parseObject(string2,Say.class);
         return object;
+    }
+
+    @ResponseBody
+    @RequestMapping("getMaster")
+    public List<DaKa> getMaster(){
+        return homeService.getMaster();
     }
 }

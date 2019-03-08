@@ -29,4 +29,5 @@ public class Example {
     Integer dt_level;
     Integer dt_qw;
     Integer aaa;
+    //看手机多联发科数据库老地方
 }

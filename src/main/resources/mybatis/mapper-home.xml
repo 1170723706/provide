@@ -65,4 +65,20 @@
     <update id="updateBrowse">
         update  t_wenzhang w SET w.browse = w.browse +1 where id = ${id}
     </update>
+
+    <!--DaKa getdaka(String id);-->
+    <select id="getdaka" resultType="DaKa" >
+          SELECT
+            m.*, d.*
+        FROM
+            t_master m
+        LEFT JOIN t_docutor_expert d ON m.zjid = d.id
+        WHERE
+            m.id = ${id}
+    </select>
+
+    <!--List<DaKa> getMaster();-->
+    <select id="getMaster" resultType="DaKa">
+        select * from t_master
+    </select>
 </mapper>

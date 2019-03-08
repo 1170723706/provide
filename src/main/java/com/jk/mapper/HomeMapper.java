@@ -1,5 +1,6 @@
 package com.jk.mapper;
 
+import com.jk.bean.DaKa;
 import com.jk.bean.Exprent;
 import com.jk.bean.WenZhang;
 import org.apache.ibatis.annotations.Param;
@@ -24,4 +25,8 @@ public interface HomeMapper {
     WenZhang getneirong(@Param("id") String id);
 
     void updateBrowse(@Param("id") String id);
+
+    DaKa getdaka(@Param("id") String id);
+
+    List<DaKa> getMaster();
 }

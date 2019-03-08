@@ -15,8 +15,9 @@
     $(function (){
         getdaka();
     });
-    function getdaka() {
-        var id = $("#id1").val();
+    var id = "";
+        function getdaka() {
+         id = $("#id1").val();
         /*ajax   start*/
                 $.ajax({
                    url:"/home/getdaka",
@@ -45,7 +46,8 @@
              /*ajax   end*/
     }
     function tozhuanjiaOnline(){
-        location.href="/home/tozhuanjiaOnline?tmp"+$("#tmp").val();
+            var tmp123 = id;
+        location.href="/home/tozhuanjiaOnline?id="+tmp123;
     }
 </script>
 <body>

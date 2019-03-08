@@ -76,8 +76,8 @@ public class HomeController {
     }
 
     @RequestMapping("tozhuanjiaOnline")
-    public String tozhuanjiaOnline(String tmp,Model model){
-        model.addAttribute("tmp",tmp);
+    public String tozhuanjiaOnline(String id,Model model){
+        model.addAttribute("tmp",id);
         return "zhuanjiaOnline";
     }
 

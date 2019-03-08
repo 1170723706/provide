@@ -17,6 +17,8 @@ WenZhangController {
     @Resource
     private WenZHangService wenZHangService;
 
+    //wuyong
+
     @ResponseBody
     @RequestMapping("queryWen")
     public WenZhang queryWen(WenZhang wenZhang) {

@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping("cg")
 public class CreateLightController {
 
+    //1
     @Resource
     private CreateLightService createLightService;
 

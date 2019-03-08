@@ -22,8 +22,10 @@ public class User implements Serializable {
     Date createtime;
     Integer status;
     String phone;
-    String img;
 
+    private Integer userCount;
+
+    private String img;
+
+    private String title;
 }
-
-

@@ -24,6 +24,4 @@ public interface HomeService {
     void updateBrowse(String id);
 
     DaKa getdaka(String id);
-
-    List<DaKa> getMaster();
 }

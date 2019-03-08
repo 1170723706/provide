@@ -1,8 +1,6 @@
 package com.jk.bean;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -12,8 +10,6 @@ public class Guandian {
     String gd_title;
     String gd_img;
     Integer gd_browse;
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date gd_createtime;
     String gd_mp3;
     String gd_content;

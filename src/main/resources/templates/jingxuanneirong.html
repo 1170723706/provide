@@ -12,12 +12,14 @@
 <script type="text/javascript">
     var ii = 0;
 $(function (){
+    getPingLun();
     getneirong();
 });
 function getneirong() {
     /*ajax   start*/
             $.ajax({
                url:"/home/getneirong",
+                async:false,
                data:{id:$("#id1").val()},
                beforeSend:function(){
                       ii = layer.msg('加载中', {
@@ -32,7 +34,8 @@ function getneirong() {
 
                  $("#title1").html(a.title);
                  $("#shijian").html(a.creaTime +"&nbsp;&nbsp;&nbsp;共浏览:"+a.browse+"次");
-                 $("#neirong").html(a.content)
+                 $("#neirong").html(a.content);
+                 $("#cc").html("<div style='width: 550px;height: 150px;margin-left: 50px'><textarea id='name' rows='6' cols='60'></textarea></div><div><div style='margin-left: 50px;width: 400px;height: 80px;float: left'><font size='5'>精品留言</font></div><div style='margin-left: 10px;height: 80px;float: left'><a onclick='pinglun()'><font size='4'>留言</font></a></div></div>");
                },
                error:function(){
                   layer.msg("ajax失败");
@@ -42,11 +45,72 @@ function getneirong() {
            });
          /*ajax   end*/
 }
+    function pinglun(){
+        var name = $("#name").val();
+        $("#name").val("");
+        var id = $("#id1").val();
+        if(name==null | name == ""){
+            layer.msg('请输入!!', {time:1000, icon:2});
+        }else {
+            $.ajax({
+                url: '/bck/addPingLun2',
+                async: false,
+                data: {content: name, em_id: id},
+                success: function () {
+                    layer.msg('留言成功!!', {time: 1000, icon: 1});
+                    $('#aa').html("");
+                    getPingLun();
+                }
+            })
+        }
+    }
+
+    function getPingLun(){
+        var id = $("#id1").val();
+        var contt ="";
+        $.ajax({
+            url: '/bck/queryPingLun2',
+            async:false,
+            data:{id:id},
+            success: function (result) {
+                $.each(result, function (index, obj) {
+                    contt += "<div style='width: 600px;height: 110px'>";
+                    contt += "<div style='width: 100px;margin-left: 50px;float: left'><img width='100px' height='100px' class='img-circle' src='"+obj.img+"'></div>";
+                    contt += "<div style='width: 400px;float: left;margin-left: 20px'><p><font size='5' color='#a9a9a9'>"+obj.name+"</font></p><p><font size='4'>"+obj.content+"</font></p></div><br>";
+                    contt += "</div><br>";
+                })
+                $('#aa').append(contt);
+            }
+        })
+    }
+
 </script>
 <body>
+
+<style type="text/css">
+    body,div{
+        margin:0;
+        padding:0;
+    }
+    body{
+        width: 600px;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        border: 1px solid #FFFFFF;
+        justify-content: flex-start;
+    }
+    .load_div{
+        width: 600px;
+        height: 450px;
+        border:1px solid #FFFFFF;
+    }
+</style>
+
 <input type="hidden" th:value="${id}" id="id1"/>
 <input type="hidden" th:value="${tmp}" id="tmp"/>
-<div class="row" style="width: 600px;height: 800px;">
+<div class="row" style="width: 600px;height: 700px;">
     <nav class="navbar navbar-default " role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -85,10 +149,11 @@ function getneirong() {
     <div style="margin-left: 62px;margin-top: 20px;"><font id="title1" size="6"></font></div>
     <div style="margin-left: 65px;margin-top: 20px;"><font id="shijian" size="3"></font></div>
     <div style="width: 435px;margin-left: 67px;margin-top: 30px;"><font style="margin-left: 35px;" size="4" id="neirong"></font></div>
-    <div style="margin-left: 65px;margin-top: 30px;"><font size="5" >写留言</font></div>
-    <div style="border-radius: 10px;background-color: #5bc0de;width: 400px;height: 100px;margin-left: 77px; margin-top: 16px;"><font style="margin-left: 27px;" size="4">| 我要留言</font></div>
-    <div style="margin-left: 152px; margin-top: 18px;"><font color="#6495ed" size="5">送勋章  ☆ ☆ ☆ ☆ ☆ </font></div>
-    <div style="margin-left: 388px;border-radius: 10px;"><input class="btn btn-primary btn-sm"style="border-radius: 80px;margin-left: 29px;"type='button'value='提交留言'></div>
+    <div id="cc">
+
+    </div>
+</div>
+<div id="aa" class="load_div">
 
 </div>
 </body>

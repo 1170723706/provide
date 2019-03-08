@@ -134,4 +134,10 @@ public class HomeController {
         Say object = JSONObject.parseObject(string2,Say.class);
         return object;
     }
+
+    @ResponseBody
+    @RequestMapping("getMaster")
+    public List<DaKa> getMaster(){
+        return homeService.getMaster();
+    }
 }

@@ -76,4 +76,9 @@
         WHERE
             m.id = 2
     </select>
+
+    <!--List<DaKa> getMaster();-->
+    <select id="getMaster" resultType="DaKa">
+        select * from t_master
+    </select>
 </mapper>

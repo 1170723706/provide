@@ -10,7 +10,6 @@
     <script src="/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 </head>
 <script type="text/javascript">
-    var img = "https://doctorimg.oss-cn-beijing.aliyuncs.com/A7%5D%7EA%5DHN%25%60C7%24%283M5PHBXDY.png?Expires=1552008559&OSSAccessKeyId=TMP.AQF6tNjfldXvqT1Olj8w9Q9uTluEJhBz8O6YvqxtirQIQrmHBOGvxc5xKhBQAAAwLAIUGiOKYb4QFMyOYb45roOvVO62cWACFEhAW-2xeQjQa_jDRL7lFsUkTOOv&Signature=%2FN2sWa%2Bk59j6KlGC8DeMdiJem48%3D";
     var ii = 0;
     $(function (){
         var tmp = $("#tmp").val();
@@ -18,15 +17,15 @@
 
         var asd2 = "<sapn><div style='background-color: #b8eecf;width: 200px;margin-left: 70px; margin-top: 15px; border-radius: 10px;padding-block-start: 10px;padding-block-end: 5px;padding-left: 15px;'>";
         asd2 +="<font  size='3'>请说您想问的？老铁帮你一一解答</font></div>";
-        asd2 +="<img class='img-circle' style='width: 52px;margin-top: -80px;margin-left: 10px;' src='"+img+"'></sapn>"
+        asd2 +="<img class='img-circle' style='width: 52px;margin-top: -80px;margin-left: 10px;' src='https://doctorimg.oss-cn-beijing.aliyuncs.com/A7%5D%7EA%5DHN%25%60C7%24%283M5PHBXDY.png?Expires=1551958847&OSSAccessKeyId=TMP.AQGsuSUsj1byVCraZtdqq6Pcew8SbyqRlChx4-gIpidEG_jqUXSuVd-C0nUhADAtAhUA0Iz1z2IddSWUfoSWhvZnnkRXQNACFHUst4HGXLCooSakM9yCkYr26XTw&Signature=NWnjjoQwOq5pJKMAwGEv%2BlGAIBk%3D'></sapn>"
         $("#say1").append(asd2);
     });
 
     function sendsay(){
         var shuchu = $("#shuchu").val();
         var content = "<span><div style='background-color: #b8eecf;width: 200px;margin-left: 240px; margin-top: 15px; border-radius: 10px;padding-block-start: 10px;padding-block-end: 5px;'>";
-            content +="<font size='3' style='margin-left: 13px;'>"+shuchu+"</font></div>";
-            content +="<img class='img-circle' style='margin-left: 448px;width: 52px;margin-top: -60px;' src='“+img+”'></span>";
+            content +="<font size='3'>"+shuchu+"</font></div>";
+            content +="<img class='img-circle' style='margin-left: 448px;width: 52px;margin-top: -60px;' src='https://doctorimg.oss-cn-beijing.aliyuncs.com/A7%5D%7EA%5DHN%25%60C7%24%283M5PHBXDY.png?Expires=1551958847&OSSAccessKeyId=TMP.AQGsuSUsj1byVCraZtdqq6Pcew8SbyqRlChx4-gIpidEG_jqUXSuVd-C0nUhADAtAhUA0Iz1z2IddSWUfoSWhvZnnkRXQNACFHUst4HGXLCooSakM9yCkYr26XTw&Signature=NWnjjoQwOq5pJKMAwGEv%2BlGAIBk%3D'></span>";
             $("#say1").append(content);
         /*ajax   start*/
                 $.ajax({
@@ -42,8 +41,8 @@
                    success:function(a){
                        $("#shuchu").val(" ");
                    var asd = "<sapn><div style='background-color: #b8eecf;width: 200px;margin-left: 70px; margin-top: 15px; border-radius: 10px;padding-block-start: 10px;padding-block-end: 5px;padding-left: 15px;'>";
-                    asd +="<font  size='3' >"+a.text+"</font></div>";
-                    asd +="<img class='img-circle' style='width: 52px;margin-top: -60px;margin-left: 10px;' src='"+img+"'></sapn>"
+                    asd +="<font  size='3'>"+a.text+"</font></div>";
+                    asd +="<img class='img-circle' style='width: 52px;margin-top: -60px;margin-left: 10px;' src='https://doctorimg.oss-cn-beijing.aliyuncs.com/A7%5D%7EA%5DHN%25%60C7%24%283M5PHBXDY.png?Expires=1551958847&OSSAccessKeyId=TMP.AQGsuSUsj1byVCraZtdqq6Pcew8SbyqRlChx4-gIpidEG_jqUXSuVd-C0nUhADAtAhUA0Iz1z2IddSWUfoSWhvZnnkRXQNACFHUst4HGXLCooSakM9yCkYr26XTw&Signature=NWnjjoQwOq5pJKMAwGEv%2BlGAIBk%3D'></sapn>"
                     $("#say1").append(asd);
                    },
                    error:function(){
@@ -103,11 +102,12 @@
     </div>
     <div>
         <form>
-            <div style="margin-top: 16px;border-radius: 10px;width: 400px; margin-left: 61px;"><input id="shuchu" type="text" class="form-control ;margin-top: 16px; " placeholder="请输入内容">
-                <input onclick="sendsay()" style="border-radius: 10px;margin-left: 415px; margin-top: -55px;" class="btn btn-primary btn-lg"  type='button'value='&nbsp;发送&nbsp;'>
+            <div style="border-radius: 10px;width: 400px; margin-left: 61px;"><input id="shuchu" type="text" class="form-control" placeholder="请输入内容">
+                <input onclick="sendsay()" style="border-radius: 10px;margin-left: 415px; margin-top: -55px;" class="btn btn-primary "  type='button'value='&nbsp;发送&nbsp;'>
             </div>
         </form>
     </div>
+
 </div>
 </body>
 </html>

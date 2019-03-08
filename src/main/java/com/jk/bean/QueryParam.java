@@ -2,8 +2,6 @@ package com.jk.bean;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class QueryParam {
 
@@ -13,6 +11,5 @@ public class QueryParam {
 
     String requestUrl; //前台传过来的url
 
-    List<CreateLight>cl;
 
 }

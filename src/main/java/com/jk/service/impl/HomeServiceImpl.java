@@ -64,9 +64,4 @@ public class HomeServiceImpl implements HomeService {
     public DaKa getdaka(String id) {
         return homeMapper.getdaka(id);
     }
-
-    @Override
-    public List<DaKa> getMaster() {
-        return homeMapper.getMaster();
-    }
 }

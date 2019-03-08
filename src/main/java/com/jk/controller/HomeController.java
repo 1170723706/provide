@@ -6,7 +6,7 @@ import com.jk.bean.Exprent;
 import com.jk.bean.Say;
 import com.jk.bean.WenZhang;
 import com.jk.service.HomeService;
-import com.jk.utils.HttpClient;
+import com.jk.util.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

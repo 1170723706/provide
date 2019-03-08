@@ -24,7 +24,7 @@
 
     </div>
 
-    <div>
+    <div style="margin-left: -80px;width: 550px">
         <h3>写留言</h3><br/>
         <div class="form-group">
             <textarea class="form-control" rows="3" id="message" placeholder="我要留言"></textarea>
@@ -69,12 +69,12 @@
             data: {id: id},
             success: function (result) {
                 var html = "";
-                html += "<div class='list'>"
+                html += "<div class='list' style='margin-left: -80px'>"
                 html += "<div  style='float:left'><h4>" + result.gd_title + "</h4></div><br/><br/>"
                 html += "<div  style='float:left'>" + result.gd_createtime + "&nbsp;&nbsp;&nbsp;&nbsp;" + result.gd_browse + "人观看" + "</div><br/><br/>"
                 html += "<div  style='float:left'><h4 style='color:#00bbee'>观点</h4>" + result.gd_content + " </div><br/><br/><br/>"
-                html += "<div class='img'><img width='300' height='150'  src=" + result.gd_img + " ></div><br/><br/>"
-                html += "<div style='float:left;width: 800px' ><h4 style='color:#00bbee'>详情</h4>" + result.gd_detailed + " </div><br/>"
+                html += "<div class='img'><img width='550' height='150'  src=" + result.gd_img + " ></div><br/><br/>"
+                html += "<div style='float:left;width: 550px' ><h4 style='color:#00bbee'>详情</h4>" + result.gd_detailed + " </div><br/>"
                 html += "</div><br/><br/><br/><br/><br/><br/><br/>"
                 $(".Sbox").html(html)
             },
